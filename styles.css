@@ -4,11 +4,13 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
 html {
   font-size: calc(0.22em + 2vmin);
+  overflow: hidden;
 }
 
 body {
@@ -30,7 +32,11 @@ main {
 
 .sidebar {
   overflow: auto;
-  background: linear-gradient(90deg, rgb(145, 0, 212) 0%, rgba(120, 0, 193, 1) 20%);
+  background: linear-gradient(
+    90deg,
+    rgb(145, 0, 212) 0%,
+    rgba(120, 0, 193, 1) 20%
+  );
   display: grid;
   grid-template-rows: 1fr 10fr;
   grid-area: 1 / 1 / -1 / 2;
@@ -38,24 +44,22 @@ main {
   color: white;
   height: 100vh;
   gap: 1em;
-  width: calc(70em/6);
+  width: calc(70em / 6);
 }
 
-.sidebar>a {
+.sidebar > a {
   color: white;
   text-decoration: none;
   display: flex;
-  /* grid-template-columns: 1fr 4fr; */
   align-items: center;
   font-size: 1.3em;
   font-weight: 700;
-  /* padding: 0.5em; */
   margin: 0.7em;
   gap: 0.5em;
   justify-self: flex-start;
 
   &:hover {
-    filter: drop-shadow(0 0 0.2em rgba(255, 255, 255, 0.384))
+    filter: drop-shadow(0 0 0.2em rgba(255, 255, 255, 0.384));
   }
 }
 
@@ -68,29 +72,27 @@ main {
   gap: 0.2em;
 }
 
-.sidebar>a>div:last-child {
+.sidebar > a > div:last-child {
   margin-bottom: 0.1em;
 }
 
-.logo>div {
+.logo > div {
   background-color: white;
-  /* height: auto;
-  width: auto; */
 }
 
-.logo>div:first-child {
+.logo > div:first-child {
   grid-area: 1 / 1 / 3 / 2;
 }
 
-.logo>div:nth-child(2) {
+.logo > div:nth-child(2) {
   grid-area: 1 / 2 / 2 / 3;
 }
 
-.logo>div:nth-child(3) {
+.logo > div:nth-child(3) {
   grid-area: 3 / 1 / 4 / 2;
 }
 
-.logo>div:nth-child(4) {
+.logo > div:nth-child(4) {
   grid-area: 2 / 2 / 4 / 3;
 }
 
@@ -100,14 +102,14 @@ nav {
   flex-direction: column;
 }
 
-nav>div {
+nav > div {
   display: flex;
   flex-direction: column;
   padding: 1.5em;
   gap: 1.2em;
 }
 
-nav>div>div {
+nav > div > div {
   display: flex;
   justify-content: flex-start;
   font-weight: bolder;
@@ -121,7 +123,7 @@ nav a {
   font-size: 1em;
 
   &:hover {
-    filter: drop-shadow(0 0 0.2em rgba(255, 255, 255, 0.582))
+    filter: drop-shadow(0 0 0.2em rgba(255, 255, 255, 0.582));
   }
 }
 
@@ -138,7 +140,7 @@ header {
   z-index: 0;
   display: flex;
   flex-direction: column;
-  height: calc(100vh / 6);
+  max-height: calc(100h / 6);
 }
 
 .top-bar {
@@ -194,7 +196,6 @@ input {
   background-color: rgb(236, 236, 236);
   border: 0;
   height: 100%;
-  /* min-height: 90%; */
   padding: 0 0.7em;
   margin: 0;
   font-size: 1em;
@@ -211,13 +212,13 @@ input {
   }
 }
 
-.top-bar>div {
+.top-bar > div {
   display: flex;
   align-items: center;
   gap: 2em;
 }
 
-.top-bar>div>button {
+.top-bar > div > button {
   display: flex;
   align-items: center;
   gap: 2em;
@@ -239,7 +240,7 @@ input {
   }
 }
 
-.top-bar>div a {
+.top-bar > div a {
   color: black;
   text-decoration: none;
   font-weight: 700;
@@ -248,7 +249,7 @@ input {
   justify-content: center;
 }
 
-.top-bar>div>a>img {
+.top-bar > div > a > img {
   width: 1.6em;
   height: auto;
   object-fit: contain;
@@ -263,7 +264,7 @@ input {
   }
 }
 
-.top-bar>div>a>p {
+.top-bar > div > a > p {
   font-size: 0.7em;
 
   &:hover {
@@ -347,7 +348,6 @@ header p:last-of-type {
 
 .content {
   overflow: auto;
-  /* object-fit: scale-down; */
   height: calc((100vh / 6) * 5);
   object-fit: contain;
   grid-area: 2 / 2 / -1 / -1;
@@ -372,49 +372,55 @@ header p:last-of-type {
   justify-content: space-between;
 }
 
-.content>div>p {
+.content > div > p {
   font-size: 1em;
   font-weight: 600;
 }
 
-.projects>div {
+.all-cards {
   flex: 1;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(14em, 1fr));
   grid-template-rows: repeat(3, 1fr);
   grid-auto-rows: 1fr;
   gap: 1em;
-  padding-right: 0.1em;
-  padding-bottom: 0.1em;
 }
 
-.projects>div>div {
+.card {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   height: auto;
   border-radius: 0.3em;
   background-color: white;
-  background: linear-gradient(90deg, rgba(120, 0, 193) 1%, rgb(255, 255, 255) 1%);
+  background: linear-gradient(
+    90deg,
+    rgba(120, 0, 193) 1%,
+    rgb(255, 255, 255) 1%
+  );
   box-shadow: 0.1em 0.1em 0.2em 0 rgba(0, 0, 0, 0.2);
   padding: 1em 1em;
 
   &:hover {
-    background: linear-gradient(90deg, rgb(165, 69, 255) 1%, rgb(255, 255, 255) 1%);
+    background: linear-gradient(
+      90deg,
+      rgb(165, 69, 255) 1%,
+      rgb(255, 255, 255) 1%
+    );
     box-shadow: 0.1em 0.1em 0.2em 0 rgba(0, 0, 0, 0.3);
   }
 }
 
-.projects>div>div>div>p:first-of-type {
+.card > div > p:first-of-type {
   font-size: 0.9em;
   font-weight: 650;
 }
 
-.projects>div>div>div>p:last-of-type {
+.card > div > p:last-of-type {
   font-size: 0.75em;
 }
 
-.projects>div>div>div:last-of-type {
+.card > div:last-of-type {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
@@ -422,7 +428,7 @@ header p:last-of-type {
   padding: 0 1em 0 0;
 }
 
-.projects button {
+.card button {
   background: none;
   border: none;
   padding: 0;
@@ -456,7 +462,7 @@ header p:last-of-type {
   height: 100%;
 }
 
-.announcements>div {
+.announcements > div {
   flex: 1;
   border-radius: 0.3em;
   background-color: white;
@@ -478,19 +484,18 @@ header p:last-of-type {
   border-bottom: 1px solid rgb(189, 189, 189);
 }
 
-.announcements>div>div>p:first-of-type {
+.announcements > div > div > p:first-of-type {
   font-size: 0.7em;
   font-weight: 650;
 }
 
-.announcements>div>div>p:last-of-type {
+.announcements > div > div > p:last-of-type {
   font-size: 0.6em;
 }
 
 .content .trending {
-
   grid-area: 2 / 2 / 3 / 3;
-  padding: 0 0.75em 1.3em 0.25em;
+  padding: 0 0.75em 1.2em 0.25em;
   display: flex;
   gap: 0.5em;
   flex-direction: column;
@@ -498,7 +503,7 @@ header p:last-of-type {
   height: 100%;
 }
 
-.trending>div {
+.trending > div {
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -513,7 +518,7 @@ header p:last-of-type {
   }
 }
 
-.trending>div>div {
+.trending > div > div {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -522,8 +527,7 @@ header p:last-of-type {
   font-size: 0.7em;
 }
 
-.trending>div>div>img {
-
+.trending > div > div > img {
   height: 3em;
   width: auto;
 }
